@@ -20,7 +20,7 @@ public class User {
 	private String password;
 
 	// one user has many assigned issue project
-//	@JsonIgnore
+	@JsonIgnore
 	@OneToMany(mappedBy = "assignee", cascade = CascadeType.ALL)
 	private List<Issue> assignedIssues = new ArrayList<>();
 	private int projectSize;
