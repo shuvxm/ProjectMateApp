@@ -21,16 +21,16 @@ public interface ProjectDao {
     // Query Methods
     List<Project> findProjectsByOwner(Long ownerId);
 
-    List<Project> findProjectsByNameContaining(String keyword);
+//    List<Project> findProjectsByNameContaining(String keyword);
 
-    List<Project> findProjectsByCategory(String category);
+//    List<Project> findProjectsByCategory(String category);
 
     List<Project> findProjectsByTeamMember(Long userId);
 
-    List<Project> findProjectsByTag(String tag);
+//    List<Project> findProjectsByTag(String tag);
 
     // Utility Methods
-    long countProjectsByOwner(Long ownerId);
+//    long countProjectsByOwner(Long ownerId);
 
-    boolean existsById(Long id);
+//    boolean existsById(Long id);
 }
