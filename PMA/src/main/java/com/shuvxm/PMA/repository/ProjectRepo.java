@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProjectRepo extends JpaRepository<Project,Long> {
 
-    
+
     List<Project> findProjectsByOwner(Long ownerId);
 
     List<Project> findProjectsByTeamMember(Long userId);
