@@ -22,11 +22,9 @@ public class Project {
     private String name;
     private String description;
     private String category;
-
     private List<String> tags = new ArrayList<>();
 
     @JsonIgnore
-
     @OneToOne(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)  // this mappedBy will go to chat and mapped with chat project
     private Chat chat;
 
