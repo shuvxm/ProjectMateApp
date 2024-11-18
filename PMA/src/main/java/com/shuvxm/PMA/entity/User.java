@@ -26,7 +26,7 @@ public class User {
 	
 	private int projectSize;
 
-	@ManyToMany
-	private Project team;
+	@ManyToMany(mappedBy = "team")
+	private List<Project> team = new ArrayList<>();
 
 }
