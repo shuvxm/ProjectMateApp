@@ -20,13 +20,23 @@ public class Chat {
 
     private String name;
 
-    @OneToOne
+    @OneToOne(mappedBy = "chat", cascade = CascadeType.ALL, orphanRemoval = true)
     private Project project;
+
 
     @JsonIgnore
     @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Message> messages;
 
+    //    @ManyToMany
+    //    private List<User> users = new ArrayList<>();
+//    @ManyToMany
+//    @JoinTable(
+//            name = "chat_users",
+//            joinColumns = @JoinColumn(name = "chat_id"),
+//            inverseJoinColumns = @JoinColumn(name = "user_id")
+//    )
+//    private List<User> users = new ArrayList<>();
     @ManyToMany
     private List<User> users = new ArrayList<>();
 }

@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -20,8 +22,21 @@ public class Message {
     private String content;
     private LocalDateTime createdAt;
 
-    @ManyToMany
+
+    //    @ManyToMany(mappedBy = "message", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    //    private List<Chat> chats;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "chat_messages",
+//            joinColumns = @JoinColumn(name = "message_id"),
+//            inverseJoinColumns = @JoinColumn(name = "chat_id")
+//    )
+//    private List<Chat> chats = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "chat_id")  // Maps to 'messages' in Chat
     private Chat chat;
+
 
     @ManyToOne
     private User sender;
