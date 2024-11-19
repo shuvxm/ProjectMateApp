@@ -6,4 +6,6 @@ import org.springframework.http.ResponseEntity;
 public interface ProjectService {
 
     ResponseEntity<?> createProject(Project project);
+
+    ResponseEntity<?> findAllProjects();
 }
