@@ -8,9 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
+
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -30,8 +31,14 @@ public class ProjectServiceImpl implements ProjectService {
         return ResponseEntity.status(HttpStatus.OK).body(ResponseStructure.builder().status(HttpStatus.OK.value()).message("All Projects fetched successfully").body(project).build());
     }
 
-    @GetMapping("project")
-    public ResponseEntity<?> findProjectById(){
+    public ResponseEntity<?> findProjectById(Long id){
+        Optional<Project> optional = projectDao.findProjectById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(ResponseStructure.builder().status(HttpStatus.OK.value()).message("Project fetched by Id successfully").body(optional).build());
+    }
+
+    @Override
+    public ResponseEntity<?> deleteProjectById(Long id) {
+
         return null;
     }
 }
