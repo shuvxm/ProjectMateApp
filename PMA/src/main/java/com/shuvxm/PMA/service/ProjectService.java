@@ -8,4 +8,8 @@ public interface ProjectService {
     ResponseEntity<?> createProject(Project project);
 
     ResponseEntity<?> findAllProjects();
+
+    ResponseEntity<?> findProjectById(Long id);
+
+    ResponseEntity<?> deleteProjectById(Long id);
 }
