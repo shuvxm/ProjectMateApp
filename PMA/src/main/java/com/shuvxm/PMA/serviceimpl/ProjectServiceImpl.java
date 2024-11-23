@@ -37,7 +37,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public ResponseEntity<?> deleteProjectById(Long id) {
+    public ResponseEntity deleteProjectById(Long id) {
 
         return null;
     }
