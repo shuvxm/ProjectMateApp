@@ -31,14 +31,16 @@ public class ProjectServiceImpl implements ProjectService {
         return ResponseEntity.status(HttpStatus.OK).body(ResponseStructure.builder().status(HttpStatus.OK.value()).message("All Projects fetched successfully").body(project).build());
     }
 
+    @Override
     public ResponseEntity<?> findProjectById(Long id){
         Optional<Project> optional = projectDao.findProjectById(id);
         return ResponseEntity.status(HttpStatus.OK).body(ResponseStructure.builder().status(HttpStatus.OK.value()).message("Project fetched by Id successfully").body(optional).build());
     }
 
     @Override
-    public ResponseEntity deleteProjectById(Long id) {
-
-        return null;
+    public ResponseEntity<?>  deleteProjectById(Long id) {
+        Optional<Project> optional = projectDao.findProjectById(id);
+        projectDao.deleteProject(id);
+        return ResponseEntity.status(HttpStatus.OK).body(ResponseStructure.builder().status(HttpStatus.OK.value()).message("Project deleted by Id successfully").body(project).build());
     }
 }
