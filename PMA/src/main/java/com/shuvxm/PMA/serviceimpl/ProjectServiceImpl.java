@@ -40,7 +40,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ResponseEntity<?>  deleteProjectById(Long id) {
         Optional<Project> optional = projectDao.findProjectById(id);
-        projectDao.deleteProject(id);
+        Project project = projectDao.deleteProject(id);
         return ResponseEntity.status(HttpStatus.OK).body(ResponseStructure.builder().status(HttpStatus.OK.value()).message("Project deleted by Id successfully").body(project).build());
     }
 }
