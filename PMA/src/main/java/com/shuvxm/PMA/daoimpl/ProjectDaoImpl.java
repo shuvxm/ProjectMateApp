@@ -31,8 +31,9 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
-    public void deleteProject(Long id) {
+    public Project deleteProject(Long id) {
         projectRepo.deleteById(id);
+        return null;
     }
 
     @Override
